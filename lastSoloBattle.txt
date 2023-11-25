@@ -1,0 +1,34 @@
+a1 dealt 22 damage to b2
+b2 dealt 17 damage to a1
+
+Name: a1
+Health: 103
+Name: b2
+Health: 128
+
+a1 dealt 22 damage to b2
+b2 dealt 16 damage to a1
+
+Name: a1
+Health: 87
+Name: b2
+Health: 106
+
+a1 dealt 24 damage to b2
+b2 dealt 19 damage to a1
+
+Name: a1
+Health: 68
+Name: b2
+Health: 82
+
+a1 dealt 29 damage to b2
+b2 dealt 18 damage to a1
+
+Name: a1
+Health: 50
+Name: b2
+Health: 53
+
+a1 dealt 66 damage to b2
+a1 won

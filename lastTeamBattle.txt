@@ -1,0 +1,71 @@
+a1 dealt 12 damage to b2
+a2 dealt 72 damage to b2
+b1 dealt 12 damage to a1
+b2 dealt 9 damage to a1
+
+Name: a1
+Health: 39
+Name: a2
+Health: 30
+
+Name: b1
+Health: 28
+Name: b2
+Health: 100
+
+a1 dealt 14 damage to b1
+a2 dealt 32 damage to b1
+b2 dealt 27 damage to a1
+
+Name: a1
+Health: 12
+Name: a2
+Health: 30
+
+Name: b1
+Health: 0
+Name: b2
+Health: 100
+
+a1 restore 26 health
+a2 dealt 23 damage to b2
+b2 dealt 11 damage to a1
+
+Name: a1
+Health: 27
+Name: a2
+Health: 30
+
+Name: b1
+Health: 0
+Name: b2
+Health: 77
+
+a1 dealt 10 damage to b2
+a2 dealt 32 damage to b2
+b2 dealt 10 damage to a1
+
+Name: a1
+Health: 17
+Name: a2
+Health: 30
+
+Name: b1
+Health: 0
+Name: b2
+Health: 35
+
+a1 dealt 16 damage to b2
+a2 dealt 32 damage to b2
+
+Name: a1
+Health: 17
+Name: a2
+Health: 30
+
+Name: b1
+Health: 0
+Name: b2
+Health: 0
+
+Team AAA wins:
