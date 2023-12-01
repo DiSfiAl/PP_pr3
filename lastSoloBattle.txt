@@ -1,34 +1,42 @@
-a1 dealt 22 damage to b2
-b2 dealt 17 damage to a1
+b dealt 23 damage to c
+c dealt 14 damage to b
 
-Name: a1
-Health: 103
-Name: b2
-Health: 128
+Name: b
+Health: 86
+Name: c
+Health: 77
 
-a1 dealt 22 damage to b2
-b2 dealt 16 damage to a1
+b dealt 60 damage to c
+c dealt 22 damage to b
 
-Name: a1
-Health: 87
-Name: b2
-Health: 106
+Name: b
+Health: 64
+Name: c
+Health: 17
 
-a1 dealt 24 damage to b2
-b2 dealt 19 damage to a1
+b dealt 18 damage to c
+c dealt 24 damage to b
 
-Name: a1
-Health: 68
-Name: b2
-Health: 82
+Name: b
+Health: 40
+Name: c
+Health: 1
 
-a1 dealt 29 damage to b2
-b2 dealt 18 damage to a1
+b restore 40 health and 6 health
+c restore 40 health
 
-Name: a1
-Health: 50
-Name: b2
-Health: 53
+Name: b
+Health: 86
+Name: c
+Health: 41
 
-a1 dealt 66 damage to b2
-a1 won
+b dealt 16 damage to c
+c dealt 22 damage to b
+
+Name: b
+Health: 64
+Name: c
+Health: 25
+
+b dealt 60 damage to c
+b wins

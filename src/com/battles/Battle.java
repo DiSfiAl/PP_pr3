@@ -5,20 +5,43 @@ import com.droid.Droid;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static com.droid.Droid.showAllDroids;
+import static com.droid.Droid.showDroidByName;
 import static java.nio.file.Files.delete;
 
 public class Battle {
     private static BufferedWriter bufferedWriter;
     private String filePath;
+    List<Droid> droids;
 
     public Battle() {
+        this.droids = new ArrayList<>();
     }
 
     public Battle(String filePath) {
         this.filePath = filePath;
+        this.droids = new ArrayList<>();
+    }
+
+    public void addDroid(Droid droid) {
+        droids.add(droid);
+    }
+
+    public List getDroids() {
+        return droids;
+    }
+
+    public void showDroids() {
+        showAllDroids(droids);
+    }
+
+    public void showDroid(String name) {
+        showDroidByName(droids, name);
     }
 
     public void move(Droid droid1, Droid droid2) {
@@ -31,15 +54,35 @@ public class Battle {
         scanner.nextLine();
         if(choice == 1) {
             int dealt = droid1.attack(droid1);
-            droid2.setHealth(droid2.getHealth() - dealt);
-            System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
-            writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+            if(Objects.equals(droid1.getType(), 1)) {
+                droid2.setHealth(droid2.getHealth() - dealt - dealt / 10 * 3);
+                System.out.println(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid2.getName());
+                writeToFile(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid2.getName());
+            }
+            else {
+                droid2.setHealth(droid2.getHealth() - dealt);
+                System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+                writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+            }
             scanner.nextLine();
+            if(Objects.equals(droid2.getType(), 3)) {
+                if(!droid2.isAlive() && !droid2.getLow()) {
+                    droid2.setLow();
+                    droid2.setHealth(1);
+                }
+            }
         }
         else if(choice == 2) {
-            droid1.RestoreHealth(droid1.getHeal());
-            System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health");
-            writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health");
+            if(Objects.equals(droid1.getType(), 2)) {
+                droid1.RestoreHealth(droid1.getHeal() + droid1.getHeal() * 3 / 20);
+                System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health and " + droid1.getHeal() * 3 / 20 + " health");
+                writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health and " + droid1.getHeal() * 3 / 20 + " health");
+            }
+            else {
+                droid1.RestoreHealth(droid1.getHeal());
+                System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health");
+                writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health");
+            }
             scanner.nextLine();
             droid1.restoreHeal();
         }
@@ -67,22 +110,55 @@ public class Battle {
                 scanner.nextLine();
                 int dealt = droid1.attack(droid1);
                 if(choice == 1) {
-                    droid2.setHealth(droid2.getHealth() - dealt);
-                    System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
-                    writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+                    if(Objects.equals(droid1.getType(), 1)) {
+                        droid2.setHealth(droid2.getHealth() - dealt - dealt / 10 * 3);
+                        System.out.println(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid2.getName());
+                        writeToFile(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid2.getName());
+                    }
+                    else {
+                        droid2.setHealth(droid2.getHealth() - dealt);
+                        System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+                        writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid2.getName());
+                    }
                     scanner.nextLine();
+                    if(Objects.equals(droid2.getType(), 3)) {
+                        if(!droid2.isAlive() && !droid2.getLow()) {
+                            droid2.setLow();
+                            droid2.setHealth(1);
+                        }
+                    }
                 }
                 else if(choice == 2) {
-                    droid2.setHealth(droid3.getHealth() - dealt);
-                    System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid3.getName());
-                    writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid3.getName());
+                    if(Objects.equals(droid1.getType(), 1)) {
+                        droid3.setHealth(droid3.getHealth() - dealt - dealt / 10 * 3);
+                        System.out.println(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid3.getName());
+                        writeToFile(droid1.getName() + " dealt " + dealt + " damage and " + dealt / 10 * 3 + " extra damage to " + droid3.getName());
+                    }
+                    else {
+                        droid3.setHealth(droid3.getHealth() - dealt);
+                        System.out.println(droid1.getName() + " dealt " + dealt + " damage to " + droid3.getName());
+                        writeToFile(droid1.getName() + " dealt " + dealt + " damage to " + droid3.getName());
+                    }
                     scanner.nextLine();
+                    if(Objects.equals(droid3.getType(), 3)) {
+                        if(!droid3.isAlive() && !droid3.getLow()) {
+                            droid3.setLow();
+                            droid3.setHealth(1);
+                        }
+                    }
                 }
             }
             else if(choice == 2) {
-                droid1.RestoreHealth(droid1.getHeal());
-                System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health");
-                writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health");
+                if(Objects.equals(droid1.getType(), 2)) {
+                    droid1.RestoreHealth(droid1.getHeal() + droid1.getHeal() * 3 / 20);
+                    System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health and " + droid1.getHeal() * 3 / 20 + " health");
+                    writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health and " + droid1.getHeal() * 3 / 20 + " health");
+                }
+                else {
+                    droid1.RestoreHealth(droid1.getHeal());
+                    System.out.println(droid1.getName() + " restore " + droid1.getHeal() + " health");
+                    writeToFile(droid1.getName() + " restore " + droid1.getHeal() + " health");
+                }
                 scanner.nextLine();
                 droid1.restoreHeal();
             }

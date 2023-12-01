@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class Droid {
     private String name;
     private int health;
+    private int type;
     private int heal;
+    private boolean low = false;
     static private int healBoost;
     private int damage;
     private int maxDamage;
@@ -17,29 +19,50 @@ public class Droid {
     public Droid() {
         this.scanner = new Scanner(System.in);
     }
-    public String getName() { return name; }
     public void setHealth(int health) { this.health = health; }
-    public void RestoreHealth(int heal) { health += heal; }
     public void setHeal() { heal += healBoost; }
     public void setHealBoost() { healBoost = health / 10; }
+    public void setLow() { this.low = true; }
+    public void RestoreHealth(int heal) { health += heal; }
     public void restoreHeal() { heal = health / 10; }
+    public String getName() { return name; }
     public int getHealth() { return health; }
     public int getHeal() { return heal; }
     public int getDamage() { return damage; }
     public int getMaxDamage() { return maxDamage; }
     public int getMinDamage() { return minDamage; }
+    public int getType() { return type; }
+    public boolean getLow() { return low; }
     public boolean isAlive() {
         return getHealth() > 0;
+    }
+    public String showType() {
+        if(getType() == 1) {
+            return "Tank";
+        }
+        else if(getType() == 2) {
+            return "Defensive";
+        }
+        else if(getType() == 3) {
+            return "Lower";
+        }
+        else
+            return "No type";
+    }
+    public static void showDroidInfo(Droid droid) {
+        System.out.println("Name: " + droid.getName());
+        System.out.println("Max Damage: " + droid.getMaxDamage());
+        System.out.println("Min Damage: " + droid.getMinDamage());
+        System.out.println("Critical Damage: " + droid.getDamage() * 3);
+        System.out.println("Health: " + droid.getHealth());
+        System.out.println("Heal Ability(Doubling with every attach): " + droid.getHeal());
+        System.out.println("Type: " + droid.showType());
     }
     public static void showAllDroids(List<Droid> droids) {
         System.out.println("All Droids:");
         System.out.println("---------------");
         for (Droid droid : droids) {
-            System.out.println("Name: " + droid.getName());
-            System.out.println("Max Damage: " + droid.getMaxDamage());
-            System.out.println("Min Damage: " + droid.getMinDamage());
-            System.out.println("Health: " + droid.getHealth());
-            System.out.println("Heal Ability(Doubling with every attach): " + droid.getHeal());
+            showDroidInfo(droid);
             System.out.println("---------------");
         }
     }
@@ -48,11 +71,7 @@ public class Droid {
         System.out.println("Droid with name " + name + ":");
         for (Droid droid : droids) {
             if(Objects.equals(name, droid.getName())) {
-                System.out.println("Max Damage: " + droid.getMaxDamage());
-                System.out.println("Min Damage: " + droid.getMinDamage());
-                System.out.println("Critical Damage: " + droid.getDamage() * 3);
-                System.out.println("Health: " + droid.getHealth());
-                System.out.println("Healing Ability(Doubling with every attach): " + droid.getHeal());
+                showDroidInfo(droid);
                 result = true;
             }
         }
@@ -77,7 +96,11 @@ public class Droid {
 
         setHealBoost();
         setHeal();
-
+        while(type < 1 || type > 3) {
+            System.out.print("Choose droid's type:\n1 - Tank(Deals extra 10% of damage)\n2 - Defensive(restore extra 15% health)\n3 - Lower(save 1 health after last attack first time)\nType: ");
+            type = scanner.nextInt();
+            scanner.nextLine();
+        }
         System.out.println("Droid " + name + " added.");
     }
     public boolean setDroid(List<Droid> droids, String name) {
@@ -88,6 +111,8 @@ public class Droid {
                 this.damage = droid.getDamage();
                 this.maxDamage = droid.getMaxDamage();
                 this.minDamage = droid.getMinDamage();
+                this.type = droid.getType();
+                this.low = droid.getLow();
                 this.health = droid.getHealth();
                 this.heal = droid.getHeal();
                 result = true;

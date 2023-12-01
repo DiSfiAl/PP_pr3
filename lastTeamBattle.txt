@@ -1,71 +1,126 @@
-a1 dealt 12 damage to b2
-a2 dealt 72 damage to b2
-b1 dealt 12 damage to a1
-b2 dealt 9 damage to a1
+a dealt 25 damage and 6 extra damage to b
+A dealt 22 damage and 6 extra damage to c
+b dealt 60 damage to a
+c dealt 20 damage to a
 
-Name: a1
-Health: 39
-Name: a2
-Health: 30
-
-Name: b1
-Health: 28
-Name: b2
+Team: AAA
+Name: a
+Health: 20
+Name: A
 Health: 100
 
-a1 dealt 14 damage to b1
-a2 dealt 32 damage to b1
-b2 dealt 27 damage to a1
+Team: B-Tier
+Name: b
+Health: 69
+Name: c
+Health: 72
 
-Name: a1
-Health: 12
-Name: a2
-Health: 30
+a dealt 21 damage and 6 extra damage to c
+A dealt 15 damage and 3 extra damage to c
+b dealt 22 damage to a
+c dealt 27 damage to A
 
-Name: b1
+Team: AAA
+Name: a
 Health: 0
-Name: b2
-Health: 100
+Name: A
+Health: 73
 
-a1 restore 26 health
-a2 dealt 23 damage to b2
-b2 dealt 11 damage to a1
-
-Name: a1
+Team: B-Tier
+Name: b
+Health: 69
+Name: c
 Health: 27
-Name: a2
-Health: 30
 
-Name: b1
+A dealt 22 damage and 6 extra damage to c
+b restore 30 health and 4 health
+c dealt 22 damage to A
+
+Team: AAA
+Name: a
 Health: 0
-Name: b2
-Health: 77
+Name: A
+Health: 51
 
-a1 dealt 10 damage to b2
-a2 dealt 32 damage to b2
-b2 dealt 10 damage to a1
+Team: B-Tier
+Name: b
+Health: 103
+Name: c
+Health: 1
 
-Name: a1
-Health: 17
-Name: a2
-Health: 30
+A dealt 26 damage and 6 extra damage to c
+b dealt 14 damage to A
 
-Name: b1
+Team: AAA
+Name: a
 Health: 0
-Name: b2
-Health: 35
+Name: A
+Health: 37
 
-a1 dealt 16 damage to b2
-a2 dealt 32 damage to b2
-
-Name: a1
-Health: 17
-Name: a2
-Health: 30
-
-Name: b1
-Health: 0
-Name: b2
+Team: B-Tier
+Name: b
+Health: 103
+Name: c
 Health: 0
 
-Team AAA wins:
+A restore 50 health
+b dealt 18 damage to A
+
+Team: AAA
+Name: a
+Health: 0
+Name: A
+Health: 69
+
+Team: B-Tier
+Name: b
+Health: 103
+Name: c
+Health: 0
+
+A dealt 22 damage and 6 extra damage to b
+b dealt 60 damage to A
+
+Team: AAA
+Name: a
+Health: 0
+Name: A
+Health: 9
+
+Team: B-Tier
+Name: b
+Health: 75
+Name: c
+Health: 0
+
+A restore 18 health
+b dealt 20 damage to A
+
+Team: AAA
+Name: a
+Health: 0
+Name: A
+Health: 7
+
+Team: B-Tier
+Name: b
+Health: 75
+Name: c
+Health: 0
+
+A dealt 18 damage and 3 extra damage to b
+b dealt 24 damage to A
+
+Team: AAA
+Name: a
+Health: 0
+Name: A
+Health: 0
+
+Team: B-Tier
+Name: b
+Health: 54
+Name: c
+Health: 0
+
+Team B-Tier wins

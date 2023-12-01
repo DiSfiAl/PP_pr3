@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         boolean exit = false;
+        Battle battle = new Battle();
         Scanner scanner = new Scanner(System.in);
-        List<Droid> droids = new ArrayList<>();
         while(!exit) {
             for (int i = 0; i < 50; ++i) System.out.println();
             System.out.println("1 - Create new droid");
@@ -29,7 +29,7 @@ public class Main {
                 for (int i = 0; i < 50; ++i) System.out.println();
                 Droid droid = new Droid();
                 droid.createDroid();
-                droids.add(droid);
+                battle.addDroid(droid);
             }
 
             else if(choice == 2) {
@@ -44,15 +44,14 @@ public class Main {
                 if(choice == 1) {
                     System.out.print("Enter name - ");
                     String name = scanner.nextLine();
-                    Droid.showDroidByName(droids, name);
+                    battle.showDroid(name);
                 }
                 else if(choice == 2)
-                    Droid.showAllDroids(droids);
+                    battle.showDroids();
             }
 
             else if(choice == 3) {
                 for (int i = 0; i < 50; ++i) System.out.println();
-                Battle battle = new Battle();
                 System.out.println("1 - 1 vs 1 Fight");
                 System.out.println("2 - Team vs Team Fight");
                 System.out.println("0 - Go Back");
@@ -64,12 +63,12 @@ public class Main {
                 if(choice == 1) {
                     System.out.print("Enter first droid's name - ");
                     String name = scanner.nextLine();
-                    if(!droid1.setDroid(droids, name))
+                    if(!droid1.setDroid(battle.getDroids(), name))
                         System.out.print("No droid with that name");
                     else {
                         System.out.print("Enter second droid's name - ");
                         name = scanner.nextLine();
-                        if(!droid2.setDroid(droids, name))
+                        if(!droid2.setDroid(battle.getDroids(), name))
                             System.out.print("No droid with that name");
                         else
                             battle.soloBattle(droid1, droid2);
@@ -82,24 +81,24 @@ public class Main {
                     team1 = scanner.nextLine();
                     System.out.print("Enter first droid's name - ");
                     String name = scanner.nextLine();
-                    if(!droid1.setDroid(droids, name))
+                    if(!droid1.setDroid(battle.getDroids(), name))
                         System.out.print("No droid with that name");
                     else {
                         System.out.print("Enter second droid's name - ");
                         name = scanner.nextLine();
-                        if (!droid2.setDroid(droids, name))
+                        if (!droid2.setDroid(battle.getDroids(), name))
                             System.out.print("No droid with that name");
                         else {
                             System.out.print("Enter first team name - ");
                             team2 = scanner.nextLine();
                             System.out.print("Enter first droid's name - ");
                             name = scanner.nextLine();
-                            if (!droid3.setDroid(droids, name))
+                            if (!droid3.setDroid(battle.getDroids(), name))
                                 System.out.print("No droid with that name");
                             else {
                                 System.out.print("Enter second droid's name - ");
                                 name = scanner.nextLine();
-                                if (!droid4.setDroid(droids, name))
+                                if (!droid4.setDroid(battle.getDroids(), name))
                                     System.out.print("No droid with that name");
                                 else {
                                     for (int i = 0; i < 50; ++i) System.out.println();
